@@ -1,4 +1,3 @@
-// Stack
 class Stack {
     constructor() {
         this.length = 0;
@@ -76,4 +75,119 @@ const queue = new Queue();
 // queue.print();
 // queue.dequeue()
 // queue.print();
+
+
+// linked list
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+
+    append(data) {
+        const newNode = new Node(data);
+
+        if (!this.head) {
+            this.head = newNode;
+            return;
+        }
+
+        let current = this.head;
+
+        while (current.next) {
+            current = current.next;
+        }
+
+        current.next = newNode;
+    }
+
+    print() {
+        let current = this.head;
+        while (current) {
+            console.log(current.data);
+            current = current.next;
+        }
+    }
+
+    display() {
+        console.log(this.head)
+    }
+}
+
+const list = new LinkedList();
+// list.append(1);
+// list.append(2);
+// list.append(3);
+
+// list.print();
+
+// list.display();
+
+// const result = {
+//     data: 1,
+//     next: {
+//         data: 2, 
+//         next: {
+//             data: 3,
+//             next: null
+//         }
+//     }
+// }
+
+class DoublyLinkedNode {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    append(data) {
+        const newNode = new DoublyLinkedNode(data);
+
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+            return;
+        }
+
+        this.tail.next = newNode; 
+        newNode.prev = this.tail; 
+        this.tail = newNode; 
+    }
+
+    print() {
+        let current = this.head;
+        while (current) {
+            console.log(current.data);
+            current = current.next;
+        }
+    }
+
+    display() {
+        console.log("head", this.head);
+        console.log("tail", this.tail);
+    }
+}
+
+// const doubleLinkedList = new DoublyLinkedList();
+// doubleLinkedList.append(1);
+// doubleLinkedList.append(2);
+// doubleLinkedList.append(3);
+// doubleLinkedList.print();
+// doubleLinkedList.display()
+
 
