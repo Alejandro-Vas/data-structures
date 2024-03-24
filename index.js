@@ -1,36 +1,29 @@
-// Массивы
-
-
-const array = [1, 2, 3, 4, 5];
-
 // Stack
 class Stack {
     constructor() {
-        this.count = 0;
+        this.length = 0;
         this.storage = {};
+    };
 
-        this.push = function (value) {
-            this.storage[this.count] = value;
-            this.count++;
-        };
+    push(value) {
+        this.storage[this.length] = value;
+        this.length++;
+    };
 
-        this.pop = function () {
-            if (this.count === 0) return undefined;
-            this.count--;
-            let result = this.storage[this.count];
-            delete this.storage[this.count];
-            return result;
-        };
+    pop() {
+        if (this.length === 0) return undefined;
+        this.length--;
 
-        this.peek = function () {
-            return this.storage[this.count - 1];
-        };
+        let result = this.storage[this.length];
+        delete this.storage[this.length];
+        return result;
+    };
 
-        this.size = function () {
-            return this.count;
-        };
-    }
+    length() {
+        return this.length;
+    };
 }
+
 
 const stack = new Stack();
 
@@ -41,37 +34,37 @@ const stack = new Stack();
 // stack.push('c')
 
 // console.log("after push",stack.storage)
-// console.log("peek", stack.peek())
-// console.log("storage", stack.storage);
+// stack.pop()
+// console.log("result", stack.storage);
 
 class Queue {
     constructor() {
-        let collection = [];
-
-        this.print = function () {
-            console.log(collection);
-        };
-
-        this.enqueue = function (element) {
-            collection.push(element);
-        };
-
-        this.dequeue = function () {
-            return collection.shift();
-        };
-
-        this.front = function () {
-            return collection[0];
-        };
-
-        this.isEmpty = function () {
-            return collection.length === 0;
-        };
-
-        this.size = function () {
-            return collection.length;
-        };
+        this.collection = []
     }
+
+    print() {
+        console.log(this.collection);
+    };
+
+    enqueue(element) {
+        this.collection.push(element);
+    };
+
+    dequeue() {
+        return this.collection.shift();
+    };
+
+    front() {
+        return this.collection[0];
+    };
+
+    isEmpty() {
+        return this.collection.length === 0;
+    };
+
+    length() {
+        return this.collection.length;
+    };
 }
 
 const queue = new Queue();
