@@ -34,14 +34,53 @@ class Stack {
 
 const stack = new Stack();
 
-console.log("intial", stack.storage);
+// console.log("initial", stack.storage);
 
-stack.push('a')
-stack.push('b')
-stack.push('c')
+// stack.push('a')
+// stack.push('b')
+// stack.push('c')
 
-console.log("after push",stack.storage)
+// console.log("after push",stack.storage)
+// console.log("peek", stack.peek())
+// console.log("storage", stack.storage);
 
-console.log("peek", stack.peek())
+class Queue {
+    constructor() {
+        let collection = [];
 
-console.log("storage", stack.storage);
+        this.print = function () {
+            console.log(collection);
+        };
+
+        this.enqueue = function (element) {
+            collection.push(element);
+        };
+
+        this.dequeue = function () {
+            return collection.shift();
+        };
+
+        this.front = function () {
+            return collection[0];
+        };
+
+        this.isEmpty = function () {
+            return collection.length === 0;
+        };
+
+        this.size = function () {
+            return collection.length;
+        };
+    }
+}
+
+const queue = new Queue();
+
+// queue.print();
+// queue.enqueue("a");
+// queue.enqueue("b");
+// queue.enqueue("c");
+// queue.print();
+// queue.dequeue()
+// queue.print();
+
