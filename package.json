@@ -1,0 +1,11 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Alejandro-Vas/data-structures.git",
+  "author": "avasin <avasin@studio-tg.ru>",
+  "license": "MIT",
+  "scripts": {
+    "dev" : "node index.js"
+  }
+}
