@@ -23,7 +23,6 @@ class Stack {
     };
 }
 
-
 const stack = new Stack();
 
 // console.log("initial", stack.storage);
@@ -123,6 +122,7 @@ class LinkedList {
 }
 
 const list = new LinkedList();
+
 // list.append(1);
 // list.append(2);
 // list.append(3);
@@ -185,7 +185,8 @@ class DoublyLinkedList {
     }
 }
 
-// const doubleLinkedList = new DoublyLinkedList();
+const doubleLinkedList = new DoublyLinkedList();
+
 // doubleLinkedList.append(1);
 // doubleLinkedList.append(2);
 // doubleLinkedList.append(3);
@@ -237,15 +238,85 @@ class HashTable {
 
 const hashTable = new HashTable();
 
-hashTable.set('a', 'a value');
-hashTable.set('b', 'b value');
+// hashTable.set('a', 'a value');
+// hashTable.set('b', 'b value');
 
-console.log(hashTable.get('a'))
-console.log(hashTable.get('b'))
+// console.log(hashTable.get('a'))
+// console.log(hashTable.get('b'))
 
-hashTable.set('b', 'new b value');
+// hashTable.set('b', 'new b value');
 
-console.log(hashTable.get('b'))
+// console.log(hashTable.get('b'))
+
+
+class Graph {
+    constructor() {
+        this.adjacencyList = {};
+    }
+
+    addVertex(vertex) {
+        if (!this.adjacencyList[vertex]) {
+            this.adjacencyList[vertex] = [];
+        }
+    }
+
+    addEdge(vertex1, vertex2) {
+        if (!this.adjacencyList[vertex1] || !this.adjacencyList[vertex2]) {
+            throw new Error('Vertex not found in graph');
+        }
+
+        this.adjacencyList[vertex1].push(vertex2);
+        this.adjacencyList[vertex2].push(vertex1);
+    }
+
+    removeEdge(vertex1, vertex2) {
+        if (!this.adjacencyList[vertex1] || !this.adjacencyList[vertex2]) {
+            throw new Error('Vertex not found in graph');
+        }
+
+        this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(v => v !== vertex2);
+        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(v => v !== vertex1);
+    }
+
+    removeVertex(vertex) {
+        if (!this.adjacencyList[vertex]) {
+            throw new Error('Vertex not found in graph');
+        }
+
+        while (this.adjacencyList[vertex].length) {
+            const adjacentVertex = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, adjacentVertex);
+        }
+
+        delete this.adjacencyList[vertex];
+    }
+
+    printGraph() {
+        const vertices = Object.keys(this.adjacencyList);
+        for (let vertex of vertices) {
+            const edges = this.adjacencyList[vertex].join(', ');
+            console.log(`${vertex} => ${edges}`);
+        }
+    }
+}
+
+const graph = new Graph();
+
+// graph.addVertex('A');
+// graph.addVertex('B');
+// graph.addVertex('C');
+// graph.addVertex('D');
+
+// graph.addEdge('A', 'B');
+// graph.addEdge('A', 'C');
+// graph.addEdge('B', 'C');
+// graph.addEdge('A', 'D');
+// graph.addEdge('B', 'D');
+// graph.printGraph();
+
+
+
+
 
 
 
