@@ -76,9 +76,10 @@ const queue = new Queue();
 // queue.dequeue()
 // queue.print();
 
+// https://codesandbox.io/p/sandbox/reverent-cherry-kyhf2x
+
 
 // linked list
-
 class Node {
     constructor(data) {
         this.data = data;
@@ -141,6 +142,7 @@ const list = new LinkedList();
 //     }
 // }
 
+
 class DoublyLinkedNode {
     constructor(data) {
         this.data = data;
@@ -189,5 +191,63 @@ class DoublyLinkedList {
 // doubleLinkedList.append(3);
 // doubleLinkedList.print();
 // doubleLinkedList.display()
+
+class HashTable {
+    constructor(size = 100) {
+        this.size = size;
+        this.buckets = new Array(size);
+    }
+
+    hash(key) {
+        return key.split('').reduce((acc, char) => {
+            return acc + char.charCodeAt(0);
+        }, 0) % this.size;
+    }
+
+    set(key, value) {
+        const index = this.hash(key);
+
+        if (!this.buckets[index]) {
+            this.buckets[index] = [];
+        }
+    
+        for (let i = 0; i < this.buckets[index].length; i++) {
+            if (this.buckets[index][i][0] === key) {
+                // Key already exists, update its value
+                this.buckets[index][i][1] = value;
+                return;
+            }
+        }
+    
+        this.buckets[index].push([key, value]);
+    }
+
+    get(key) {
+        const index = this.hash(key);
+        if (this.buckets[index]) {
+            for (let i = 0; i < this.buckets[index].length; i++) {
+                if (this.buckets[index][i][0] === key) {
+                    return this.buckets[index][i][1];
+                }
+            }
+        }
+        return undefined;
+    }
+}
+
+const hashTable = new HashTable();
+
+hashTable.set('a', 'a value');
+hashTable.set('b', 'b value');
+
+console.log(hashTable.get('a'))
+console.log(hashTable.get('b'))
+
+hashTable.set('b', 'new b value');
+
+console.log(hashTable.get('b'))
+
+
+
 
 
