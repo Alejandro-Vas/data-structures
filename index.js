@@ -215,14 +215,14 @@ class HashTable {
         if (!this.buckets[index]) {
             this.buckets[index] = [];
         }
-    
+
         for (let i = 0; i < this.buckets[index].length; i++) {
             if (this.buckets[index][i][0] === key) {
                 this.buckets[index][i][1] = value;
                 return;
             }
         }
-    
+
         this.buckets[index].push([key, value]);
     }
 
@@ -279,6 +279,96 @@ const set = new Set()
 // set.add('b') // again
 
 // console.log(set)
+
+// Binary Tree
+class BinaryNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BinaryTree {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(value) {
+        const newNode = new BinaryNode(value);
+        if (this.root === null) {
+            this.root = newNode;
+        } else {
+            this.insertNode(this.root, newNode);
+        }
+    }
+
+    insertNode(node, newNode) {
+        if (newNode.value < node.value) {
+            if (node.left === null) {
+                node.left = newNode;
+            } else {
+                this.insertNode(node.left, newNode);
+            }
+        } else {
+            if (node.right === null) {
+                node.right = newNode;
+            } else {
+                this.insertNode(node.right, newNode);
+            }
+        }
+    }
+
+    inorderHelper(node, callback) {
+        if (node !== null) {
+            this.inorderHelper(node.left, callback);
+            callback(node);
+            this.inorderHelper(node.right, callback);
+        }
+    }
+
+    inorder(callback) {
+        this.inorderHelper(this.root, callback);
+    }
+
+    printNodes() {
+        this.inorder(node => console.log(node.value));
+    }
+}
+
+const binaryTree = new BinaryTree();
+binaryTree.insert(10);
+binaryTree.insert(5);
+binaryTree.insert(15);
+binaryTree.insert(3);
+binaryTree.insert(8);
+
+binaryTree.printNodes()
+
+console.log(binaryTree.root)
+
+const result = {
+    value: 10,
+    left: {
+        value: 5,
+        left: {
+            value: 3,
+            left: null,
+            right: null
+        },
+        right: {
+            value: 8,
+            left: null,
+            right: null
+        }
+    },
+    right: {
+        value: 15,
+        left: null,
+        right: null
+    }
+};
+
 
 
 class Graph {
