@@ -1,3 +1,6 @@
+
+// Collections
+
 class Stack {
     constructor() {
         this.length = 0;
@@ -76,6 +79,7 @@ const queue = new Queue();
 // queue.print();
 
 // https://codesandbox.io/p/sandbox/reverent-cherry-kyhf2x
+// https://notistack.com/features/basic
 
 
 // linked list
@@ -214,7 +218,6 @@ class HashTable {
     
         for (let i = 0; i < this.buckets[index].length; i++) {
             if (this.buckets[index][i][0] === key) {
-                // Key already exists, update its value
                 this.buckets[index][i][1] = value;
                 return;
             }
@@ -247,6 +250,35 @@ const hashTable = new HashTable();
 // hashTable.set('b', 'new b value');
 
 // console.log(hashTable.get('b'))
+
+
+// dictionary (js Map)
+const dictionary = new Map();
+
+// dictionary.set('apple', 'яблоко');
+// dictionary.set('banana', 'банан');
+// dictionary.set(123, 123);
+
+// console.log(dictionary.get('apple'));
+
+// console.log(dictionary)
+
+// console.log("has orange", dictionary.has('orange')); 
+// console.log("has 123", dictionary.has(123)); 
+
+// dictionary.delete('banana');
+
+// console.log("has banana", dictionary.has('banana'));
+
+
+// Set (unique js array)
+const set = new Set()
+
+// set.add('a')
+// set.add('b')
+// set.add('b') // again
+
+// console.log(set)
 
 
 class Graph {
