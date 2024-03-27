@@ -337,38 +337,37 @@ class BinaryTree {
 }
 
 const binaryTree = new BinaryTree();
-binaryTree.insert(10);
-binaryTree.insert(5);
-binaryTree.insert(15);
-binaryTree.insert(3);
-binaryTree.insert(8);
+// binaryTree.insert(10);
+// binaryTree.insert(5);
+// binaryTree.insert(15);
+// binaryTree.insert(3);
+// binaryTree.insert(8);
 
-binaryTree.printNodes()
+// binaryTree.printNodes()
 
-console.log(binaryTree.root)
+// https://www.cs.usfca.edu/~galles/visualization/BST.html
 
-const result = {
-    value: 10,
-    left: {
-        value: 5,
-        left: {
-            value: 3,
-            left: null,
-            right: null
-        },
-        right: {
-            value: 8,
-            left: null,
-            right: null
-        }
-    },
-    right: {
-        value: 15,
-        left: null,
-        right: null
-    }
-};
-
+// const result = {
+//     value: 10,
+//     left: {
+//         value: 5,
+//         left: {
+//             value: 3,
+//             left: null,
+//             right: null
+//         },
+//         right: {
+//             value: 8,
+//             left: null,
+//             right: null
+//         }
+//     },
+//     right: {
+//         value: 15,
+//         left: null,
+//         right: null
+//     }
+// }
 
 
 class Graph {
